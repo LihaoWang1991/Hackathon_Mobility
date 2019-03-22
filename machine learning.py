@@ -46,11 +46,11 @@ test_Y = Y[train_size:len(X)+1]
 
 '''''''''''''''''''''''''''''''''Define and train machine learning model'''''''''''''''''''''''''''''''''
 model = MLPRegressor(solver='adam', alpha=1e-5,hidden_layer_sizes=(100,100), random_state=1, max_iter=10000, tol=1e-10)
-mode.fit(train_X, train_Y)
+model.fit(train_X, train_Y)
 
 '''''''''''''''''''''''''''''''''Print prediction results'''''''''''''''''''''''''''''''''
 
-predict_Y = NN.predict(test_X)
+predict_Y = model.predict(test_X)
 predict_Y = predict_Y * Y_range + Y_mean
 test_Y = test_Y * Y_range + Y_mean
 print(predict_Y[0:20])
